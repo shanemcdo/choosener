@@ -1,6 +1,14 @@
 const input_list = document.querySelector('#input-list');
 const template = document.querySelector('#input-list-item-template');
 const input_list_item = template.content.firstElementChild
+const get_choice_button = document.querySelector('#get-choice-button');
+const input_div = document.querySelector('#input-div');
+const choice_div = document.querySelector('#choice-div');
+const chosen = document.querySelector('#chosen');
+
+function get_random_array_element(array){
+    return array[Math.floor(Math.random() * array.length)];
+}
 
 function append_list_item(){
     let item = input_list_item.cloneNode(true)
@@ -45,8 +53,29 @@ function append_list_item(){
 }
 
 function update(){
-    if(input_list.children.length == 0)
-        append_list_item();
+    get_choice_button.disabled = true;
+    for(let i = 0; i < input_list.children.length; i++){
+        if(input_list.children[i].children[0].value){
+            get_choice_button.disabled = false;
+            break;
+        }
+    }
 }
 
+function get_choice(){
+    input_div.style.display = 'none';
+    choice_div.style.display = 'block';
+    let arr = [];
+    for(let i = 0; i < input_list.children.length; i++)
+        if(input_list.children[i].children[0].value)
+            arr.push(input_list.children[i].children[0].value);
+    chosen.innerHTML = get_random_array_element(arr);
+}
+
+function change_choices(){
+    input_div.style.display = '';
+    choice_div.style.display = '';
+}
+
+append_list_item();
 update();
