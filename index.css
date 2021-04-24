@@ -1,0 +1,29 @@
+:root{
+    --bg: #111;
+    --bg-accent: #222;
+    --text: #169;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+}
+
+#input-list{
+    list-style: none;
+    padding: 0;
+}
+
+.input-list-input{
+    width: 100%;
+    background: var(--bg);
+    border: solid 1px var(--bg-accent);
+    color: var(--text);
+}
