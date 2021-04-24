@@ -11,6 +11,10 @@ function get_random_array_element(array){
     return array[Math.floor(Math.random() * array.length)];
 }
 
+function set_theme(filename){
+    theme_link.href = filename
+}
+
 function append_list_item(){
     let item = input_list_item.cloneNode(true)
     item.addEventListener('keydown', function(event){
