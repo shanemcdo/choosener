@@ -5,6 +5,7 @@ const get_choice_button = document.querySelector('#get-choice-button');
 const input_div = document.querySelector('#input-div');
 const choice_div = document.querySelector('#choice-div');
 const chosen = document.querySelector('#chosen');
+const theme_link = document.querySelector('#theme');
 
 function get_random_array_element(array){
     return array[Math.floor(Math.random() * array.length)];

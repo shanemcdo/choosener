@@ -1,11 +1,3 @@
-:root{
-    --bg: #111;
-    --bg-accent: #222;
-    --text: #169;
-    --text-accent: #5ad;
-    --disabled-text: #023;
-}
-
 html, body{
     margin: 0;
     padding: 0;
@@ -90,6 +82,7 @@ button:hover{
     margin-top: 0;
     font-size: 1.2rem;
     font-weight: 100;
+
 }
 
 @media only screen and (min-width: 750px){
