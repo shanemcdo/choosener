@@ -35,15 +35,18 @@ button{
     color: var(--text);
     font-family: 'Roboto Mono', monospace;
     font-size: 1.5rem;
+    font-weight: 100;
+    cursor: pointer;
 }
 
 button:disabled{
     background: var(--bg) !important;
     border: solid 1px var(--bg);
     color: var(--disabled-text);
+    cursor: default;
 }
 
-button:active{
+button:hover{
     background: var(--bg-accent);
 }
 
@@ -76,6 +79,10 @@ button:active{
 
 #choice-div{
     display: none;
+}
+
+#chosen{
+    font-weight: 400;
 }
 
 @media only screen and (min-width: 750px){
