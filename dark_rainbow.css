@@ -1,0 +1,15 @@
+:root{
+    --bg: #111;
+    --bg-accent: #222;
+    --text: #eee;
+    --text-accent: #bbb;
+    --disabled-text: #444;
+}
+
+h1, h3, h5,
+button,
+.input-list-input{
+    background: linear-gradient(to right, #ff6663, #feb144, #fdfd96, #9ee09e, #9ec1cf, #cc99c9);
+    background-clip: text;
+    color: transparent;
+}
