@@ -7,12 +7,26 @@ const choice_div = document.querySelector('#choice-div');
 const chosen = document.querySelector('#chosen');
 const theme_link = document.querySelector('#theme');
 
+function set_cookie(key, value){
+    document.cookie = key + '=' + value;
+}
+
+function get_cookie(key){
+    let rows = document.cookie.split('; ')
+    for(let i = 0; i < rows.length; i++)
+        if(rows[i].startsWith(key)){
+            return rows[i].split('=')[1]
+        }
+    return null
+}
+
 function get_random_array_element(array){
     return array[Math.floor(Math.random() * array.length)];
 }
 
 function set_theme(filename){
     theme_link.href = filename
+    set_cookie('theme', filename);
 }
 
 function append_list_item(){
@@ -98,3 +112,4 @@ document.addEventListener('keydown', event=>{
             break;
     }
 });
+set_theme(get_cookie('theme') || 'default_theme.css');
