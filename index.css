@@ -47,17 +47,23 @@ button:disabled{
 }
 
 .input-list-input{
+    padding: 0;
+    display: block;
     width: 100%;
     background: var(--bg);
-    border: solid 1px var(--bg-accent);
     color: var(--text);
     font-family: 'Roboto Mono', monospace;
     font-weight: 100;
+    border: none;
 }
 
 .input-list-input:placeholder-shown{
     background: var(--bg-accent);
     color: var(--text-accent);
+}
+
+.input-list-input:focus{
+    border: solid 1px var(--bg-accent);
 }
 
 #choice-div{
