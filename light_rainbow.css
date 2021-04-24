@@ -1,0 +1,22 @@
+:root{
+    --bg: #eee;
+    --bg-accent: #ccc;
+    --text: transparent;
+    --text-accent: transparent;
+    --disabled-text: rgba(255, 255, 255, 0.4);
+}
+
+h1, h3, h5,
+button, button:disabled,
+.input-list-input{
+    background: linear-gradient(to right, #c1301c, #c96112, #c4a705, #117245, #2e5793, #4b2882);
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    caret-color: white;
+}
+
+@media only screen and (max-width: 750px){
+    button{
+        color: white !important;
+    }
+}
