@@ -58,6 +58,7 @@ button{
     font-weight: 100;
     cursor: pointer;
     box-shadow: none;
+    -webkit-box-shadow: none;
 }
 
 button:disabled{
