@@ -19,6 +19,26 @@ body{
     right: 30px;
 }
 
+.dropdown-button{
+    float: right;
+}
+
+.dropdown-menu{
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-item{
+    display: block;
+    width: 100%;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
 .content{
     padding: 20px;
 }
@@ -44,6 +64,7 @@ button:disabled{
     cursor: default;
 }
 
+.dropdown:hover .dropdown-button,
 button:hover{
     background: var(--bg-accent);
 }
@@ -88,7 +109,6 @@ button:hover{
     margin-top: 0;
     font-size: 1.2rem;
     font-weight: 100;
-
 }
 
 @media only screen and (min-width: 750px){
