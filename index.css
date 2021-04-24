@@ -83,6 +83,13 @@ button:hover{
 
 #chosen{
     font-weight: 400;
+    margin-bottom: 0;
+}
+
+#chosen-subtitle{
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: 100;
 }
 
 @media only screen and (min-width: 750px){

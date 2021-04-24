@@ -33,7 +33,11 @@ function append_list_item(){
                 }
                 break;
             case 38: // up arrow
-                prev?.focus();
+                if(prev){
+                    prev.focus();
+                    if(!event.target.value)
+                        input_list.removeChild(event.target.parentElement)
+                }
                 break;
             case 40: // down arrow
                 if(next)
