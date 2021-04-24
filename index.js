@@ -77,5 +77,5 @@ function change_choices(){
     choice_div.style.display = '';
 }
 
-append_list_item();
 update();
+append_list_item();

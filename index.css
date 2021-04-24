@@ -3,6 +3,7 @@
     --bg-accent: #222;
     --text: #169;
     --text-accent: #5ad;
+    --disabled-text: #023;
 }
 
 html, body{
@@ -37,8 +38,13 @@ button{
 }
 
 button:disabled{
+    background: var(--bg) !important;
+    border: solid 1px var(--bg);
+    color: var(--disabled-text);
+}
+
+button:active{
     background: var(--bg-accent);
-    color: var(--text-accent);
 }
 
 #input-list{
@@ -60,8 +66,8 @@ button:disabled{
 }
 
 .input-list-input:placeholder-shown{
-    background: var(--bg-accent);
-    color: var(--text-accent);
+    border: solid 1px var(--bg-accent);
+    color: var(--disabled-text);
 }
 
 .input-list-input:focus{
