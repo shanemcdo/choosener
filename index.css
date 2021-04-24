@@ -2,12 +2,14 @@
     --bg: #111;
     --bg-accent: #222;
     --text: #169;
+    --text-accent: #5ad;
 }
 
 html, body{
     margin: 0;
     padding: 0;
     font-family: 'Roboto Mono', monospace;
+    font-size: 1.5em;
 }
 
 body{
@@ -33,4 +35,10 @@ h1{
     color: var(--text);
     font-family: 'Roboto Mono', monospace;
     font-weight: 100;
+    font-size: 0.9em;
+}
+
+.input-list-input:placeholder-shown{
+    background: var(--bg-accent);
+    color: var(--text-accent);
 }
