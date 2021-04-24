@@ -1,15 +1,15 @@
 :root{
     --bg: #111;
     --bg-accent: #222;
-    --text: #eee;
-    --text-accent: #bbb;
-    --disabled-text: #444;
+    --text: transparent;
+    --text-accent: transparent;
+    --disabled-text: rgba(0, 0, 0, 0.4);
 }
 
 h1, h3, h5,
-button,
+button, button:disabled,
 .input-list-input{
-    background: linear-gradient(to right, #ff6663, #feb144, #fdfd96, #9ee09e, #9ec1cf, #cc99c9);
-    background-clip: text;
-    color: transparent;
+    background: linear-gradient(to right, #ff6663, #feb144, #fdfd96, #9ee09e, #9ec1cf, #cc99c9) !important;
+    background-clip: text !important;
+    caret-color: white;
 }
