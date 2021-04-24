@@ -13,7 +13,6 @@ function get_random_array_element(array){
 function append_list_item(){
     let item = input_list_item.cloneNode(true)
     item.addEventListener('keydown', function(event){
-        console.log(event.keyCode);
         let prev = event.target.parentElement.previousElementSibling?.children[0] || null;
         let next = event.target.parentElement.nextElementSibling?.children[0] || null;
         let last = input_list.children[input_list.children.length - 1].children[0] || null;
@@ -34,8 +33,7 @@ function append_list_item(){
                 }
                 break;
             case 38: // up arrow
-                if(prev)
-                    prev.focus();
+                prev?.focus();
                 break;
             case 40: // down arrow
                 if(next)
@@ -79,3 +77,15 @@ function change_choices(){
 
 update();
 append_list_item();
+document.addEventListener('keydown', event=>{
+    if(event.target != document.body)
+        return;
+    switch(event.keyCode){
+        case 38: // up arrow
+            input_list.children[0]?.children[0]?.focus();
+            break;
+        case 40: // down arrow
+            input_list.children[input_list.children.length - 1]?.children[0]?.focus();
+            break;
+    }
+});
