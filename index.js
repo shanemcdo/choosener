@@ -100,7 +100,7 @@ function get_choice(){
         chosen.innerHTML = get_random_array_element(arr);
         void chosen.offsetWidth; // update the element
         if(reps == 0){
-            chosen.style.animation = `drop-stop ${delay / 2}ms`;
+            chosen.style.animation = `drop-stop ${delay}ms`;
             can_spin = true;
         }else{
             chosen.style.animation = `drop ${delay}ms`;
