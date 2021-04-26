@@ -87,10 +87,24 @@ function get_choice(){
     input_div.style.display = 'none';
     choice_div.style.display = 'block';
     let arr = [];
+    let delay = 50; // milliseconds
     for(let i = 0; i < input_list.children.length; i++)
         if(input_list.children[i].children[0].value)
             arr.push(input_list.children[i].children[0].value);
-    chosen.innerHTML = get_random_array_element(arr);
+    function spin(reps){
+        chosen.style.animation = '';
+        chosen.innerHTML = get_random_array_element(arr);
+        void chosen.offsetWidth; // update the element
+        if(reps == 0){
+            chosen.style.animation = `drop-stop ${delay / 2}ms`;
+        }else{
+            chosen.style.animation = `drop ${delay}ms`;
+            setTimeout(spin, delay, reps - 1);
+        }
+        delay += 10;
+    }
+    spin(20); // spin 20 times
+
 }
 
 function change_choices(){

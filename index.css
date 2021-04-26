@@ -49,6 +49,7 @@ h1{
     font-weight: 800;
 }
 
+#chosen-box,
 button{
     background: var(--bg);
     border: solid 1px var(--bg-accent);
@@ -104,9 +105,20 @@ button:hover{
     display: none;
 }
 
+#chosen-box{
+    cursor: default;
+    overflow: hidden;
+}
+
+.sub-chosen{
+    font-weight: 400;
+    margin: 0;
+    font-size: 0.7rem;
+}
+
 #chosen{
     font-weight: 400;
-    margin-bottom: 0;
+    margin: 10px;
 }
 
 #chosen-subtitle{
@@ -123,4 +135,14 @@ button:hover{
     .input-list-input{
         font-size: 1.5rem;
     }
+}
+
+@keyframes drop{
+    from {transform: translateY(-100%);}
+    to {transform: translateY(100%);}
+}
+
+@keyframes drop-stop{
+    from {transform: translateY(-100%);}
+    to {transform: none;}
 }
