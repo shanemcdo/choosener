@@ -6,6 +6,7 @@ const input_div = document.querySelector('#input-div');
 const choice_div = document.querySelector('#choice-div');
 const chosen = document.querySelector('#chosen');
 const theme_link = document.querySelector('#theme');
+let can_spin = true;
 
 function set_cookie(key, value){
     document.cookie = key + '=' + value;
@@ -84,6 +85,9 @@ function update(){
 }
 
 function get_choice(){
+    if(!can_spin)
+        return;
+    can_spin = false;
     input_div.style.display = 'none';
     choice_div.style.display = 'block';
     let arr = [];
@@ -97,6 +101,7 @@ function get_choice(){
         void chosen.offsetWidth; // update the element
         if(reps == 0){
             chosen.style.animation = `drop-stop ${delay / 2}ms`;
+            can_spin = true;
         }else{
             chosen.style.animation = `drop ${delay}ms`;
             setTimeout(spin, delay, reps - 1);
