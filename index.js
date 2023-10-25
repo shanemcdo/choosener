@@ -13,7 +13,7 @@ function set_cookie(key, value){
 }
 
 function get_cookie(key){
-    let rows = document.cookie.split('; ')
+    let rows = document.cookie.split('; ');
     for(let i = 0; i < rows.length; i++){
         if(rows[i].startsWith(key)){
             return rows[i].split('=')[1]
@@ -32,7 +32,7 @@ function set_theme(filename){
 }
 
 function append_list_item(){
-    let item = input_list_item.cloneNode(true)
+    let item = input_list_item.cloneNode(true);
     item.addEventListener('keydown', function(event){
         let prev = event.target.parentElement.previousElementSibling?.children[0] || null;
         let next = event.target.parentElement.nextElementSibling?.children[0] || null;
@@ -47,7 +47,7 @@ function append_list_item(){
             case 8: // backspace
                 if(event.target.value == '' && input_list.children.length > 1){
                     sibling = prev || next;
-                    input_list.removeChild(event.target.parentElement)
+                    input_list.removeChild(event.target.parentElement);
                     if(sibling){
                         sibling.value += ' ';
                         sibling.focus();
@@ -58,7 +58,7 @@ function append_list_item(){
                 if(prev){
                     prev.focus();
                     if(!event.target.value){
-                        input_list.removeChild(event.target.parentElement)
+                        input_list.removeChild(event.target.parentElement);
                     }
                 }
                 break;
