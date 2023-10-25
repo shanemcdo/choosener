@@ -42,7 +42,7 @@ function remove_child(child){
 
 function append_list_item(){
     let item = input_list_item.cloneNode(true);
-    item.addEventListener('keydown', function(event){
+    item.addEventListener('keydown', (event) => {
         let prev = event.target.parentElement.previousElementSibling?.children[0] || null;
         let next = event.target.parentElement.nextElementSibling?.children[0] || null;
         let last = input_list.children[input_list.children.length - 1].children[0] || null;
