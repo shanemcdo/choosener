@@ -100,13 +100,9 @@ function update(){
 }
 
 function get_choices(){
-    let arr = [];
-    for(let i = 0; i < input_list.children.length; i++){
-        if(input_list.children[i].children[0].value){
-            arr.push(input_list.children[i].children[0].value);
-        }
-    }
-    return arr;
+    return [...input_list.children]
+        .map(x => x.children[0].value)
+        .filter(x => x);
 }
 
 function get_choice(){
@@ -163,7 +159,6 @@ function main(){
         .split(hash_seperator)
         .filter(x=>x)
         .map(decodeURIComponent);
-    console.log(items);
     if(items.length > 0){
         items.map((value, index)=>{
             append_list_item();
