@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>The Choosener</title>
-        <meta name="viewport" content="width=device-width">
-        <link href="index.css" type="text/css" rel="stylesheet">
-        <link href="default_theme.css" type="text/css" rel="stylesheet" id="theme">
-        <script src="index.js" defer></script>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
-    </head>
-    <template id="input-list-item-template">
-        <li class="input-list-item">
-            <input class="input-list-input" oninput="update()" placeholder="List Item"></input>
+	<head>
+		<title>The Choosener</title>
+		<meta name="viewport" content="width=device-width">
+		<link href="index.css" type="text/css" rel="stylesheet">
+		<link href="default_theme.css" type="text/css" rel="stylesheet" id="theme">
+		<script src="index.js" defer></script>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
+	</head>
+	<template id="input-list-item-template">
+		<li class="input-list-item">
+			<input class="input-list-input" oninput="update()" placeholder="List Item"></input>
 			<button class="remove-button" onclick="remove_child(this.parentElement);">X</button>
-        </li>
-    </template>
-    <body>
-        <div class="dropdown">
-            <button class="dropdown-button themes">Themes</button>
-            <ul class="dropdown-menu">
-                <li><button class="dropdown-item" onclick="set_theme(this.value)" value="default_theme.css" >Default</button></li>
-                <li><button class="dropdown-item" onclick="set_theme(this.value)" value="light_theme.css" >Light</button></li>
-                <li><button class="dropdown-item" onclick="set_theme(this.value)" value="dark_rainbow.css" >Dark Rainbow</button></li>
-                <li><button class="dropdown-item" onclick="set_theme(this.value)" value="light_rainbow.css" >Light Rainbow</button></li>
-                <li><button class="dropdown-item" onclick="set_theme(this.value)" value="baby.css" >Baby</button></li>
-                <li><button class="dropdown-item" onclick="set_theme(this.value)" value="light_baby.css" >Light Baby</button></li>
-            </ul>
-        </div>
-        <div class="content">
-            <h1>The Choosener</h1>
-            <div id="input-div">
-                <button id="get-choice-button" onclick="get_choice()">Choosen</button>
-                <ul id="input-list">
-                </ul>
-            </div>
-            <div id="choice-div">
-                <div id="chosen-box">
-                    <h3 id="chosen"></h3>
-                </div>
-                <h5 id="chosen-subtitle">was choosened</h5>
-                <button id="get-again-button" onclick="get_choice()">Re-Choosen</button>
-                <button id="return-button" onclick="change_choices()">Edit Chooses</button>
-            </div>
-        </div>
-    </body>
+		</li>
+	</template>
+	<body>
+		<div class="dropdown">
+			<button class="dropdown-button themes">Themes</button>
+			<ul class="dropdown-menu">
+				<li><button class="dropdown-item" onclick="set_theme(this.value)" value="default_theme.css" >Default</button></li>
+				<li><button class="dropdown-item" onclick="set_theme(this.value)" value="light_theme.css" >Light</button></li>
+				<li><button class="dropdown-item" onclick="set_theme(this.value)" value="dark_rainbow.css" >Dark Rainbow</button></li>
+				<li><button class="dropdown-item" onclick="set_theme(this.value)" value="light_rainbow.css" >Light Rainbow</button></li>
+				<li><button class="dropdown-item" onclick="set_theme(this.value)" value="baby.css" >Baby</button></li>
+				<li><button class="dropdown-item" onclick="set_theme(this.value)" value="light_baby.css" >Light Baby</button></li>
+			</ul>
+		</div>
+		<div class="content">
+			<h1>The Choosener</h1>
+			<div id="input-div">
+				<button id="get-choice-button" onclick="get_choice()">Choosen</button>
+				<ul id="input-list">
+				</ul>
+			</div>
+			<div id="choice-div">
+				<div id="chosen-box">
+					<h3 id="chosen"></h3>
+				</div>
+				<h5 id="chosen-subtitle">was choosened</h5>
+				<button id="get-again-button" onclick="get_choice()">Re-Choosen</button>
+				<button id="return-button" onclick="change_choices()">Edit Chooses</button>
+			</div>
+		</div>
+	</body>
 </html>
