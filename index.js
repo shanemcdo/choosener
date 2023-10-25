@@ -169,7 +169,6 @@ function main(){
             append_list_item();
             input_list.children[index].children[0].value = value;
         });
-        get_choice();
     }else{
         append_list_item();
     }
