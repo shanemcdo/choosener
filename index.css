@@ -150,6 +150,12 @@ button:hover{
     }
 }
 
+@media only screen and (max-width: 750px){
+    #input-list {
+        width: 90vw;
+    }
+}
+
 @keyframes drop{
     from {transform: translateY(-100%);}
     to {transform: translateY(100%);}
