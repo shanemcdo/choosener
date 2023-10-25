@@ -14,10 +14,11 @@ function set_cookie(key, value){
 
 function get_cookie(key){
     let rows = document.cookie.split('; ')
-    for(let i = 0; i < rows.length; i++)
+    for(let i = 0; i < rows.length; i++){
         if(rows[i].startsWith(key)){
             return rows[i].split('=')[1]
         }
+    }
     return null
 }
 
@@ -39,8 +40,9 @@ function append_list_item(){
         let sibling;
         switch(event.keyCode){
             case 13: // enter key
-                if(event.target.value)
+                if(event.target.value){
                     append_list_item();
+                }
                 break;
             case 8: // backspace
                 if(event.target.value == '' && input_list.children.length > 1){
@@ -55,22 +57,25 @@ function append_list_item(){
             case 38: // up arrow
                 if(prev){
                     prev.focus();
-                    if(!event.target.value)
+                    if(!event.target.value){
                         input_list.removeChild(event.target.parentElement)
+                    }
                 }
                 break;
             case 40: // down arrow
-                if(next)
+                if(next){
                     next.focus();
-                else if(event.target.value)
+                }else if(event.target.value){
                     append_list_item();
+                }
                 break;
         }
     });
-    if(document.activeElement.classList.contains('input-list-input'))
+    if(document.activeElement.classList.contains('input-list-input')){
         document.activeElement.parentElement.insertAdjacentElement('afterend', item);
-    else
+    }else{
         input_list.append(item);
+    }
     item.children[0].focus();
 }
 
@@ -85,16 +90,17 @@ function update(){
 }
 
 function get_choice(){
-    if(!can_spin)
-        return;
+    if(!can_spin) return;
     can_spin = false;
     input_div.style.display = 'none';
     choice_div.style.display = 'block';
     let arr = [];
     let delay = 50; // milliseconds
-    for(let i = 0; i < input_list.children.length; i++)
-        if(input_list.children[i].children[0].value)
+    for(let i = 0; i < input_list.children.length; i++){
+        if(input_list.children[i].children[0].value){
             arr.push(input_list.children[i].children[0].value);
+        }
+    }
     function spin(reps){
         chosen.style.animation = '';
         chosen.innerHTML = get_random_array_element(arr);
@@ -120,8 +126,7 @@ function change_choices(){
 update();
 append_list_item();
 document.addEventListener('keydown', event=>{
-    if(event.target != document.body)
-        return;
+    if(event.target != document.body) return;
     switch(event.keyCode){
         case 38: // up arrow
             input_list.children[0]?.children[0]?.focus();
