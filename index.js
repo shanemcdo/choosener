@@ -6,6 +6,7 @@ const input_div = document.querySelector('#input-div');
 const choice_div = document.querySelector('#choice-div');
 const chosen = document.querySelector('#chosen');
 const theme_link = document.querySelector('#theme');
+const hash_seperator = ',';
 let can_spin = true;
 
 function set_cookie(key, value){
@@ -71,6 +72,9 @@ function append_list_item(){
                 break;
         }
     });
+    item.addEventListener('input', ()=>{
+        update_url();
+    });
     if(document.activeElement.classList.contains('input-list-input')){
         document.activeElement.parentElement.insertAdjacentElement('afterend', item);
     }else{
@@ -89,18 +93,23 @@ function update(){
     }
 }
 
-function get_choice(){
-    if(!can_spin) return;
-    can_spin = false;
-    input_div.style.display = 'none';
-    choice_div.style.display = 'block';
+function get_choices(){
     let arr = [];
-    let delay = 50; // milliseconds
     for(let i = 0; i < input_list.children.length; i++){
         if(input_list.children[i].children[0].value){
             arr.push(input_list.children[i].children[0].value);
         }
     }
+    return arr;
+}
+
+function get_choice(){
+    if(!can_spin) return;
+    can_spin = false;
+    input_div.style.display = 'none';
+    choice_div.style.display = 'block';
+    let delay = 50; // milliseconds
+    let arr = get_choices();
     function spin(reps){
         chosen.style.animation = '';
         chosen.innerHTML = get_random_array_element(arr);
@@ -123,17 +132,42 @@ function change_choices(){
     choice_div.style.display = '';
 }
 
-update();
-append_list_item();
-document.addEventListener('keydown', event=>{
-    if(event.target != document.body) return;
-    switch(event.keyCode){
-        case 38: // up arrow
-            input_list.children[0]?.children[0]?.focus();
-            break;
-        case 40: // down arrow
-            input_list.children[input_list.children.length - 1]?.children[0]?.focus();
-            break;
+function update_url(){
+    const choices = get_choices()
+        .map(encodeURIComponent)
+        .join(hash_seperator);
+    window.location.replace(location.origin + '#' + choices);
+}
+
+function main(){
+    document.addEventListener('keydown', event=>{
+        if(event.target != document.body) return;
+        switch(event.keyCode){
+            case 38: // up arrow
+                input_list.children[0]?.children[0]?.focus();
+                break;
+            case 40: // down arrow
+                input_list.children[input_list.children.length - 1]?.children[0]?.focus();
+                break;
+        }
+    });
+    set_theme(get_cookie('theme') || 'default_theme.css');
+    const items = window.location.hash
+        .substring(1)
+        .split(hash_seperator)
+        .filter(x=>x)
+        .map(decodeURIComponent);
+    console.log(items);
+    if(items.length > 0){
+        items.map((value, index)=>{
+            append_list_item();
+            input_list.children[index].children[0].value = value;
+        });
+        get_choice();
+    }else{
+        append_list_item();
     }
-});
-set_theme(get_cookie('theme') || 'default_theme.css');
+    update();
+}
+
+main();
