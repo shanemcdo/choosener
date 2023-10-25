@@ -12,6 +12,7 @@
     <template id="input-list-item-template">
         <li class="input-list-item">
             <input class="input-list-input" oninput="update()" placeholder="List Item"></input>
+			<button class="remove-button" onclick="remove_child(this.parentElement);">X</button>
         </li>
     </template>
     <body>

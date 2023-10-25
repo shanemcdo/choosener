@@ -32,6 +32,14 @@ function set_theme(filename){
     set_cookie('theme', filename);
 }
 
+function remove_child(child){
+    input_list.removeChild(child);
+    update();
+    if(input_list.children.length < 1) {
+        append_list_item();
+    }
+}
+
 function append_list_item(){
     let item = input_list_item.cloneNode(true);
     item.addEventListener('keydown', function(event){
@@ -72,9 +80,6 @@ function append_list_item(){
                 break;
         }
     });
-    item.addEventListener('input', ()=>{
-        update_url();
-    });
     if(document.activeElement.classList.contains('input-list-input')){
         document.activeElement.parentElement.insertAdjacentElement('afterend', item);
     }else{
@@ -91,6 +96,7 @@ function update(){
             break;
         }
     }
+    update_url();
 }
 
 function get_choices(){
