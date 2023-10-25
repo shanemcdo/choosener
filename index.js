@@ -1,6 +1,6 @@
 const input_list = document.querySelector('#input-list');
 const template = document.querySelector('#input-list-item-template');
-const input_list_item = template.content.firstElementChild
+const input_list_item = template.content.firstElementChild;
 const get_choice_button = document.querySelector('#get-choice-button');
 const input_div = document.querySelector('#input-div');
 const choice_div = document.querySelector('#choice-div');
@@ -17,10 +17,10 @@ function get_cookie(key){
     let rows = document.cookie.split('; ');
     for(let i = 0; i < rows.length; i++){
         if(rows[i].startsWith(key)){
-            return rows[i].split('=')[1]
+            return rows[i].split('=')[1];
         }
     }
-    return null
+    return null;
 }
 
 function get_random_array_element(array){
@@ -28,7 +28,7 @@ function get_random_array_element(array){
 }
 
 function set_theme(filename){
-    theme_link.href = filename
+    theme_link.href = filename;
     set_cookie('theme', filename);
 }
 
