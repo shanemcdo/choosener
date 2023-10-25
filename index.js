@@ -142,7 +142,7 @@ function update_url(){
 }
 
 function main(){
-    document.addEventListener('keydown', event=>{
+    document.addEventListener('keydown', event => {
         if(event.target != document.body) return;
         switch(event.keyCode){
             case 38: // up arrow
@@ -157,10 +157,10 @@ function main(){
     const items = window.location.hash
         .substring(1)
         .split(hash_seperator)
-        .filter(x=>x)
+        .filter(x => x)
         .map(decodeURIComponent);
     if(items.length > 0){
-        items.map((value, index)=>{
+        items.map((value, index) => {
             append_list_item();
             input_list.children[index].children[0].value = value;
         });
