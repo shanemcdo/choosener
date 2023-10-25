@@ -142,7 +142,7 @@ function update_url(){
     const choices = get_choices()
         .map(encodeURIComponent)
         .join(hash_seperator);
-    window.location.replace(location.origin + '#' + choices);
+    window.location.replace(location.origin + location.pathname + '#' + choices);
 }
 
 function main(){
