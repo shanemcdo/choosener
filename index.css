@@ -76,6 +76,7 @@ button:hover{
 #input-list{
     list-style: none;
     padding: 0;
+    margin-bottom: 0;
 }
 
 .input-list-item {
@@ -103,11 +104,6 @@ button:hover{
     border: solid 1px var(--bg);
     font-size: 1.5rem;
     outline: none !important;
-}
-
-.input-list-input:placeholder-shown{
-    border: solid 1px var(--bg-accent);
-    color: var(--disabled-text);
 }
 
 .input-list-input:focus{
