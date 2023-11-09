@@ -46,14 +46,17 @@ function append_list_item(){
         input_list.append(item);
     }
     item.children[0].focus();
+    update();
 }
 
 function update(){
     get_choice_button.disabled = true;
-    for(let i = 0; i < input_list.children.length; i++){
-        if(input_list.children[i].children[0].value){
+    new_button.style.display = '';
+    for(const child of input_list.children){
+        if(child.firstElementChild.value !== ''){
             get_choice_button.disabled = false;
-            break;
+        }else{
+            new_button.style.display = 'none';
         }
     }
     update_url();
