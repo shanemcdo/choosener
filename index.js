@@ -53,7 +53,6 @@ function append_list_item(){
             case 8: // backspace
                 if(event.target.value == '' && input_list.children.length > 1){
                     sibling = prev || next;
-                    input_list.removeChild(event.target.parentElement);
                     if(sibling){
                         sibling.value += ' ';
                         sibling.focus();
