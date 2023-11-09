@@ -10,7 +10,7 @@ const hash_seperator = ',';
 let can_spin = true;
 
 function set_cookie(key, value){
-    document.cookie = `${key}=${value};expires=${new Date('1-1-9999').toGMTString()}`;
+    document.cookie = `${key}=${value}; expires=Fri, 01 Jan 9999 12:00:00 UTC`
 }
 
 function get_cookie(key){
