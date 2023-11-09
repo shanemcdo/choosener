@@ -107,6 +107,7 @@ button,
     font-weight: 100;
     border: solid 1px var(--bg);
     outline: none !important;
+    font-size: 1.5rem;
 }
 
 .input-list-input:focus{
@@ -147,10 +148,6 @@ button,
 @media only screen and (min-width: 750px){
     body{
         font-size: 2rem;
-    }
-
-    .input-list-input{
-        font-size: 1.5rem;
     }
 }
 
