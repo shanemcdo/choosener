@@ -6,6 +6,7 @@ const input_div = document.querySelector('#input-div');
 const choice_div = document.querySelector('#choice-div');
 const chosen = document.querySelector('#chosen');
 const theme_link = document.querySelector('#theme');
+const new_button = document.querySelector('#new_button');
 const hash_seperator = ',';
 let can_spin = true;
 
