@@ -39,48 +39,6 @@ function remove_child(child){
 
 function append_list_item(){
     let item = input_list_item.cloneNode(true);
-    item.addEventListener('keydown', (event) => {
-        let prev = event.target.parentElement.previousElementSibling?.children[0] || null;
-        let next = event.target.parentElement.nextElementSibling?.children[0] || null;
-        let last = input_list.children[input_list.children.length - 1].children[0] || null;
-        let sibling;
-        switch(event.keyCode){
-            case 13: // enter key
-                if(event.target.value){
-                    append_list_item();
-                }
-                break;
-            case 8: // backspace
-                if(event.target.value == '' && input_list.children.length > 1){
-                    sibling = prev || next;
-                    if(sibling){
-                        sibling.value += ' ';
-                        sibling.focus();
-                    }
-                }
-                break;
-            case 38: // up arrow
-                if(prev){
-                    prev.focus();
-                    if(!event.target.value){
-                        input_list.removeChild(event.target.parentElement);
-                    }
-                }
-                break;
-            case 40: // down arrow
-                if(next){
-                    next.focus();
-                }else if(event.target.value){
-                    append_list_item();
-                }
-                break;
-        }
-    });
-    item.addEventListener('focusout', (event) => {
-        if(event.target.value === '') {
-            remove_child(event.target.parentElement);
-        }
-    });
     if(document.activeElement.classList.contains('input-list-input')){
         document.activeElement.parentElement.insertAdjacentElement('afterend', item);
     }else{
@@ -168,6 +126,48 @@ function main(){
     }else{
         append_list_item();
     }
+    input_list.addEventListener('keydown', (event) => {
+        let prev = event.target.parentElement.previousElementSibling?.children[0] || null;
+        let next = event.target.parentElement.nextElementSibling?.children[0] || null;
+        let last = input_list.children[input_list.children.length - 1].children[0] || null;
+        let sibling;
+        switch(event.keyCode){
+            case 13: // enter key
+                if(event.target.value){
+                    append_list_item();
+                }
+                break;
+            case 8: // backspace
+                if(event.target.value == '' && input_list.children.length > 1){
+                    sibling = prev || next;
+                    if(sibling){
+                        sibling.value += ' ';
+                        sibling.focus();
+                    }
+                }
+                break;
+            case 38: // up arrow
+                if(prev){
+                    prev.focus();
+                    if(!event.target.value){
+                        input_list.removeChild(event.target.parentElement);
+                    }
+                }
+                break;
+            case 40: // down arrow
+                if(next){
+                    next.focus();
+                }else if(event.target.value){
+                    append_list_item();
+                }
+                break;
+        }
+    });
+    input_list.addEventListener('focusout', (event) => {
+        if(event.target.value === '') {
+            remove_child(event.target.parentElement);
+        }
+    });
     update();
 }
 
