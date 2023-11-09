@@ -77,6 +77,11 @@ function append_list_item(){
                 break;
         }
     });
+    item.addEventListener('focusout', (event) => {
+        if(event.target.value === '') {
+            remove_child(event.target.parentElement);
+        }
+    });
     if(document.activeElement.classList.contains('input-list-input')){
         document.activeElement.parentElement.insertAdjacentElement('afterend', item);
     }else{
