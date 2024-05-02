@@ -10,7 +10,6 @@ const new_button = document.querySelector('#new_button');
 const hash_seperator = ',';
 let can_spin = true;
 
-
 function get_random_array_element(array){
     return array[Math.floor(Math.random() * array.length)];
 }
