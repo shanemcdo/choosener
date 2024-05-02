@@ -10,16 +10,6 @@ const new_button = document.querySelector('#new_button');
 const hash_seperator = ',';
 let can_spin = true;
 
-function set_cookie(key, value){
-    document.cookie = `${key}=${value}; expires=Fri, 01 Jan 9999 12:00:00 UTC`
-}
-
-function get_cookie(key){
-    return document.cookie.split('; ')
-        .map(row => row.split('='))
-        .find(row => row[0] === key)
-        ?.at(1) ?? null;
-}
 
 function get_random_array_element(array){
     return array[Math.floor(Math.random() * array.length)];
@@ -27,7 +17,7 @@ function get_random_array_element(array){
 
 function set_theme(filename){
     theme_link.href = filename;
-    set_cookie('theme', filename);
+    localStorage.setItem('theme', filename);
 }
 
 function remove_child(child){
@@ -116,7 +106,7 @@ function main(){
                 break;
         }
     });
-    set_theme(get_cookie('theme') || 'default_theme.css');
+    set_theme(localStorage.getItem('theme') || 'default_theme.css');
     const items = window.location.hash
         .substring(1)
         .split(hash_seperator)
